@@ -4,7 +4,7 @@ import time
 
 # Initialize DynamoDB and SES client
 dynamodb = boto3.resource('dynamodb')
-ses = boto3.client('ses', region_name='ap-south-1')  # Make sure you set the correct SES region
+ses = boto3.client('ses', region_name='us-east-2')  # Make sure you set the correct SES region
 
 # DynamoDB table
 table = dynamodb.Table('subscribers')  # Make sure the table name matches your DynamoDB table
@@ -17,7 +17,7 @@ def send_welcome_email(email, name):
 
         # Send email via SES
         response = ses.send_email(
-            Source='dukanesona1868@gmail.com',  # Make sure to replace with your verified email in SES
+            Source='anjisingam103@gmail.com',  # Make sure to replace with your verified email in SES
             Destination={'ToAddresses': [email]},
             Message={
                 'Subject': {'Data': subject},
