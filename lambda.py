@@ -4,7 +4,7 @@ import time
 
 # Initialize DynamoDB and SES client
 dynamodb = boto3.resource('dynamodb')
-ses = boto3.client('ses', region_name='us-east-1')  # Make sure you set the correct SES region
+ses = boto3.client('ses', region_name='ap-south-1')  # Make sure you set the correct SES region
 
 # DynamoDB table
 table = dynamodb.Table('subscribers')  # Make sure the table name matches your DynamoDB table
@@ -84,3 +84,4 @@ def lambda_handler(event, context):
             'body': json.dumps({'error': str(e)}),
             'headers': {'Content-Type': 'application/json'}
         }
+
